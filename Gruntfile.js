@@ -41,6 +41,12 @@ module.exports = function(grunt) {
 			}
 		},
 
+		configero_tools: {
+			tools: {
+				options: {}
+			}
+		},
+
 		// Unit tests.
 		nodeunit: {
 			tests: ['test/*_test.js']
@@ -101,6 +107,8 @@ module.exports = function(grunt) {
 
 	
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['jshint', 'clean', 'configero_project_starter', 'nodeunit', 'write-apex-class-meta', 'write-apex-trigger-meta', 'copy', 'antdeploy']);
+	grunt.registerTask('default', ['jshint', 'clean', 'configero_project_starter', 'nodeunit', 'write-apex-class-meta', 'write-apex-trigger-meta', 'copy', 'antdeploy','clean']);
+
+	grunt.registerTask('deploy-tools', ['jshint', 'clean', 'configero_tools', 'write-apex-class-meta', 'copy', 'antdeploy', 'clean']);
 
 };

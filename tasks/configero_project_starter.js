@@ -76,4 +76,21 @@ module.exports = function(grunt) {
 		}		
 	});
 
+	grunt.registerMultiTask('configero_tools', 'Configero tools and utilities', function() {
+		var filesToCopy = [
+			'ConfigeroToolsTests.cls',
+			'ConversionUtility.cls',
+			'SchemaUtility.cls',
+			'UnitTestObjectCreator.cls'
+		];
+
+		for( var index in filesToCopy){
+			var file = filesToCopy[index];
+			grunt.file.copy(
+				path.join(localApex, '/classes/', file),
+				path.join(localTmp, '/classes/', file)
+			);
+		}
+	});
+
 };
