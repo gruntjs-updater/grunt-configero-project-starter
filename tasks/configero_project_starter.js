@@ -12,6 +12,9 @@ var path = require('path');
 
 var localApex = path.resolve(__dirname, '../apex');
 var localTmp = path.resolve(__dirname, '../tmp');
+var localSrc = path.resolve(__dirname, '../src');
+var localSrcTriggers = path.join(localSrc, '/triggers');
+var localSrcClasses = path.join(localSrc, '/classes');
 var CONFIGERO_TRIGGER_INTERFACE = path.join(localApex, '/classes/ConfigeroTriggerInterface.cls');
 var CONFIGERO_TRIGGER_FACTORY = path.join(localApex, '/classes/ConfigeroTriggerFactory.cls');
 
@@ -70,7 +73,7 @@ module.exports = function(grunt) {
 			var buildHandlerFile = grunt.template.process(handlerTemplate, {data: data});
 			grunt.file.write(path.join(localTmp, '/triggers/'+data.triggerObjectPretty+'Trigger.trigger'), buildTriggerFile);
 			grunt.file.write(path.join(localTmp, '/classes/'+data.triggerObjectPretty+'Handler.cls'), buildHandlerFile);
-		}
+		}		
 	});
 
 };

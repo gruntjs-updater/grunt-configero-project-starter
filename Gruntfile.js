@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 		configero_project_starter: {			
 			triggers: {
 				options: {
-					objects: []
+					objects: ['Account']
 				},
 				files: {}				
 			}
@@ -41,7 +41,48 @@ module.exports = function(grunt) {
 		// Unit tests.
 		nodeunit: {
 			tests: ['test/*_test.js']
-		}
+		},
+
+		copy: {
+			options: {},
+			main: {
+				expand: true,
+				src: ['**/*'],
+				dest: 'src/',
+				cwd: 'tmp'
+			}
+		},
+
+		antretrieve: {
+			options: {
+				user: 'BillWiThe@Science.Fi',
+				pass: 'iWlliB',
+				root: 'src/',
+				maxPoll: '20',
+				pollWaitMillis: '10000'
+			},
+			build: {
+				pkg: {
+					apexclass: ['*'],
+					apextrigger: ['*']
+				}
+			}
+		},
+
+		antdeploy: {
+			options: {
+				user: 'BillWiThe@Science.Fi',
+				pass: 'iWlliB',
+				root: 'src/',
+				apiVersion: "32.0"
+			},
+			build: {				
+				pkg: {					
+					apexclass: ['*'],
+					apextrigger: ['*']
+				}
+			}
+		},
 
 	});
 
@@ -51,11 +92,13 @@ module.exports = function(grunt) {
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks('grunt-ant-sfdc');	
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'configero_project_starter', 'nodeunit']);
+	grunt.registerTask('test', ['clean', 'configero_project_starter', 'nodeunit', 'write-apex-class-meta', 'write-apex-trigger-meta', 'copy', 'antdeploy']);
 
 	// By default, lint and run all tests.
 	grunt.registerTask('default', ['jshint', 'test']);

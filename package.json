@@ -28,8 +28,10 @@
     "test": "grunt test"
   },
   "devDependencies": {
+  	"grunt-ant-sfdc": "^0.2.6",
     "grunt-contrib-jshint": "^0.9.2",
     "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5"
   },
@@ -37,6 +39,11 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "Configero",
+    "Trigger Factory",
+    "Trigger Handler",
+    "Salesforce Trigger Factory",
+    "Salesforce Trigger Handler"
   ]
 }

@@ -1,5 +1,4 @@
 # grunt-configero-project-starter
-<<<<<<< HEAD
 
 > Configero project template starter kit
 

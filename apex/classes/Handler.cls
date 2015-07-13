@@ -43,7 +43,7 @@ public with sharing class <%= triggerObject %>Handler implements ConfigeroTrigge
 		if(preventRecursion()) return;
 		incrementTriggerRuns();
 		
-		doSomething(); //Example only, can be removed
+		doSomethingExample(); //Example only, can be removed
 	}
 
 	public void beforeDelete(){
@@ -98,7 +98,7 @@ public with sharing class <%= triggerObject %>Handler implements ConfigeroTrigge
 	 * Stores trigger runs in a STATIC INTEGER variable so you can see if recursion is happening.
 	 */
 	private Boolean preventRecursion(){
-		if( triggerRuns > 1 && !allowRecursion) return true;
+		if( <%= triggerObject %>Handler.triggerRuns > 1 && !<%= triggerObject %>Handler.allowRecursion) return true;
 		return false;
 	}
 
@@ -109,6 +109,6 @@ public with sharing class <%= triggerObject %>Handler implements ConfigeroTrigge
 	 * increments the triggerRuns counter variable
 	 */
 	private void incrementTriggerRuns(){
-		this.triggerRuns += 1;
+		<%= triggerObject %>Handler.triggerRuns += 1;
 	}
 }
