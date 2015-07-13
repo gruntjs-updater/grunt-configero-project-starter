@@ -27,22 +27,17 @@ exports.configero_project_starter = {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
-    test.expect(1);
+  triggers: function(test) {
+    test.expect(2);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actualHandler = grunt.file.read('tmp/classes/AccountHandler.cls');
+    var expectedHandler = grunt.file.read('test/expected/AccountHandler.cls');
+    test.equal(actualHandler, expectedHandler, 'AccountHandler should now be successfully generated.');
 
-    test.done();
-  },
-  custom_options: function(test) {
-    test.expect(1);
-
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    var actualTrigger = grunt.file.read('tmp/triggers/AccountTrigger.trigger');
+    var expectedTrigger = grunt.file.read('test/expected/AccountTrigger.trigger');
+    test.equal(actualTrigger, expectedTrigger, 'AccountTrigger should now be successfully generated.');
 
     test.done();
-  },
+  }
 };

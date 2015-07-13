@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 			all: [
 			'Gruntfile.js',
 			'tasks/*.js',
-			// '<%= nodeunit.tests %>'
+			'<%= nodeunit.tests %>'
 			],
 			options: {
 				jshintrc: '.jshintrc'
@@ -29,37 +29,18 @@ module.exports = function(grunt) {
 		},
 
 		// Configuration to be run (and then tested).
-		configero_project_starter: {
-			default_options: {
-				options: {
-					objects: ['Lead', 'My_Customized_Object__c']
-				},
-				files: {
-					'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-				}
-			},
-			custom_options: {
-				options: {
-					separator: ': ',
-					punctuation: ' !!!',
-					objects: ['Account', 'My_Custom_Object__c']
-				},
-				files: {
-					'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-				}				
-			},
+		configero_project_starter: {			
 			triggers: {
 				options: {
 					objects: ['Account', 'My_Object__c']
 				},
 				files: {}				
 			}
-
 		},
 
 		// Unit tests.
 		nodeunit: {
-			// tests: ['test/*_test.js']
+			tests: ['test/*_test.js']
 		}
 
 	});
@@ -74,7 +55,7 @@ module.exports = function(grunt) {
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'configero_project_starter']);
+	grunt.registerTask('test', ['clean', 'configero_project_starter', 'nodeunit']);
 
 	// By default, lint and run all tests.
 	grunt.registerTask('default', ['jshint', 'test']);
