@@ -1,4 +1,5 @@
 # grunt-configero-project-starter
+<<<<<<< HEAD
 
 > Configero project template starter kit
 
@@ -87,3 +88,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 _(Nothing yet)_
+=======
+Configero Project template
+>>>>>>> 95740de827bb3ba76e3ec99579c5590669dde438
