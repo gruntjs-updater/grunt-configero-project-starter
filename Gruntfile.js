@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 		configero_project_starter: {			
 			triggers: {
 				options: {
-					objects: ['Account', 'My_Object__c']
+					objects: []
 				},
 				files: {}				
 			}

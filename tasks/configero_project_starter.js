@@ -47,6 +47,10 @@ module.exports = function(grunt) {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options();
 
+		if(options.objects === undefined || options.objects == null || options.objects.length === 0){
+			grunt.fail.fatal('Objects array is empty. You must specify at least 1 SObject to continue.', 'NSF');
+		}
+
 		var triggerTemplate = grunt.file.read(path.join(localApex,'/triggers/Trigger.trigger'));
 		var handlerTemplate = grunt.file.read(path.join(localApex,'/classes/Handler.cls'));
 

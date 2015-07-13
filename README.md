@@ -39,40 +39,23 @@ grunt.initConfig({
 ### Options
 
 #### options.objects
-Type: `String`
-Default value: `',  '`
+Type: `Array`
+Default value: `null`
 
 An array containing API Names of Objects to create Trigger Handlers for. If the base Trigger Factory and Trigger Interface is not present in your `src/classes` directory, then those files will also be created.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  configero_project_starter: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, `trigger handlers` are created for the `Account`, `Lead`, & `My_Custom_Object__c` objects.
+`My_Custom_Object__c` will be prettyfied to `MyCustomObject` i.e. `MyCustomObjectTrigger.trigger` and `MyCustomObjectTriggerHandler.cls`. 
 
 ```js
 grunt.initConfig({
   configero_project_starter: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+    	objects: ['Account', 'Lead', 'My_Custom_Object__c']
+    },    
   },
 });
 ```
