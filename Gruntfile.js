@@ -3,9 +3,13 @@
 * https://github.com/WiznoForce/grunt-configero-project-starter
 *
 * Copyright (c) 2015 Andrew Wisniowski
+* 
+* Email: andrew.wisniowski@configero.com
+* Website: http://Configero.com
+* Website: http://Wizno.com
+* 
 * Licensed under the MIT license.
 */
-
 'use strict';
 
 module.exports = function(grunt) {
@@ -32,9 +36,8 @@ module.exports = function(grunt) {
 		configero_project_starter: {			
 			triggers: {
 				options: {
-					objects: ['Account']
-				},
-				files: {}				
+					objects: ['Account'] //Add any SObjects you want to generate TriggerHandlers for here. You can run this again in the future if you want to add more.
+				}
 			}
 		},
 
@@ -96,11 +99,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
 	grunt.loadNpmTasks('grunt-ant-sfdc');	
 
-	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
-	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'configero_project_starter', 'nodeunit', 'write-apex-class-meta', 'write-apex-trigger-meta', 'copy', 'antdeploy']);
-
+	
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['jshint', 'test']);
+	grunt.registerTask('default', ['jshint', 'clean', 'configero_project_starter', 'nodeunit', 'write-apex-class-meta', 'write-apex-trigger-meta', 'copy', 'antdeploy']);
 
 };
