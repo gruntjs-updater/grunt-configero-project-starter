@@ -38,17 +38,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.objects
 Type: `String`
 Default value: `',  '`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+An array containing API Names of Objects to create Trigger Handlers for. If the base Trigger Factory and Trigger Interface is not present in your `src/classes` directory, then those files will also be created.
 
 ### Usage Examples
 
